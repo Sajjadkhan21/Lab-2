@@ -19,7 +19,7 @@ used_mem = total_mem - available_mem
 percent_used = (used_mem / total_mem) * 100
 
 print("Memory usage:", round(percent_used, 2), "%")
->>>>>>> feature-memory-check
+
 
 if percent_used > 90:
     print("Health check FAILED: disk almost full")
