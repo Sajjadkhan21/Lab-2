@@ -1,17 +1,16 @@
-#!/usr/bin/env python3
-
-import platform
 import shutil
+import sys
 
-print("=== Server Inventory ===")
-print(f"Hostname: {platform.node()}")
-print(f"OS: {platform.system()} {platform.release()}")
+# Check disk usage
+total, used, free = shutil.disk_usage("/")
+percent_used = (used / total) * 100
 
-# Developer A:
-# Add a disk usage section using shutil.disk_usage().
+print("Disk usage:", round(percent_used, 2), "%")
 
-# Developer B:
-# Add a memory section.
-# On Linux you may read /proc/meminfo.
-
-print("========================")
+# Decide health status
+if percent_used > 90:
+    print("Health check FAILED: disk almost full")
+    sys.exit(1)
+else:
+    print("Health check PASSED")
+    sys.exit(0)
