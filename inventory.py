@@ -1,4 +1,3 @@
-D
 # Check disk usage
 total, used, free = shutil.disk_usage("/")
 percent_used = (used / total) * 100
